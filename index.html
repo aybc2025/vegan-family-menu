@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Vegan Family Recipes - 30-Day Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                Vegan Family Menu
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="calendar">30-Day Calendar</a></li>
+                <li><a href="#" class="nav-link" data-page="recipes">Recipe Library</a></li>
+                <li><a href="#" class="nav-link" data-page="nutrition">Nutrition Guide</a></li>
+                <li><a href="#" class="nav-link" data-page="meal-prep">Meal Prep & Tips</a></li>
+                <li><a href="#" class="nav-link" data-page="shopping">Shopping Lists</a></li>
+                <li><a href="#" class="nav-link" data-page="about">About & Sources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <h1>Simple Vegan Family Recipes</h1>
+                    <p class="hero-subtitle">30-Day Rotating Menu</p>
+                    <div class="hero-features">
+                        <span><i class="fas fa-check-circle"></i> Nutritionally Complete</span>
+                        <span><i class="fas fa-heart"></i> Kid-Friendly</span>
+                        <span><i class="fas fa-clock"></i> Time-Saving</span>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <strong>45</strong>
+                            <span>Recipes</span>
+                        </div>
+                        <div class="stat">
+                            <strong>15</strong>
+                            <span>Cuisines</span>
+                        </div>
+                        <div class="stat">
+                            <strong>2-Day</strong>
+                            <span>Rotation</span>
+                        </div>
+                    </div>
+                    <button class="cta-button" onclick="showPage('calendar')">
+                        View Full Menu Calendar
+                    </button>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2>Why This Menu Works</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-seedling"></i>
+                            <h3>Nutritionally Complete</h3>
+                            <p>Meets all protein, iron, and vitamin B12 needs for growing children and adults through carefully planned plant-based meals.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-utensils"></i>
+                            <h3>Kid-Approved Recipes</h3>
+                            <p>Fun, colorful dishes with familiar flavors that kids love, plus creative tweaks to make vegetables appealing.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-refresh"></i>
+                            <h3>Cook Once, Eat Twice</h3>
+                            <p>Smart 2-day rotation system means you cook once and enjoy leftovers the next day, saving time and reducing stress.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quick-start">
+                <div class="container">
+                    <h2>Quick Start Guide</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h4>Browse the Calendar</h4>
+                            <p>Explore our 30-day interactive calendar to see all meals planned out</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h4>Download Shopping Lists</h4>
+                            <p>Get organized shopping lists for weekly or monthly grocery trips</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h4>Start Cooking</h4>
+                            <p>Begin with Day 1-2 meals and enjoy the simplified meal planning</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 30-Day Calendar -->
+        <div id="calendar" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>30-Day Menu Calendar</h1>
+                    <p>Click on any day to see detailed meal information and recipes</p>
+                </div>
+                
+                <div class="calendar-controls">
+                    <div class="legend">
+                        <h3>Nutrition Legend:</h3>
+                        <div class="legend-items">
+                            <span class="legend-item iron"><i class="fas fa-dumbbell"></i> Iron-Rich</span>
+                            <span class="legend-item protein"><i class="fas fa-muscle"></i> High-Protein</span>
+                            <span class="legend-item b12"><i class="fas fa-vitamin"></i> B12-Fortified</span>
+                            <span class="legend-item kid-friendly"><i class="fas fa-smile"></i> Kid-Friendly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Calendar will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe Library -->
+        <div id="recipes" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Recipe Library</h1>
+                    <p>Browse all 45 recipes with detailed instructions and nutritional information</p>
+                </div>
+
+                <div class="recipe-controls">
+                    <div class="search-filters">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="recipe-search" placeholder="Search recipes...">
+                        </div>
+                        
+                        <div class="filters">
+                            <select id="meal-type-filter">
+                                <option value="">All Meal Types</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                            </select>
+                            
+                            <select id="cuisine-filter">
+                                <option value="">All Cuisines</option>
+                                <option value="american">American</option>
+                                <option value="middle-eastern">Middle Eastern</option>
+                                <option value="italian">Italian</option>
+                                <option value="asian">Asian</option>
+                                <option value="mexican">Mexican</option>
+                                <option value="indian">Indian</option>
+                                <option value="fusion">Fusion</option>
+                            </select>
+                            
+                            <select id="prep-time-filter">
+                                <option value="">All Prep Times</option>
+                                <option value="quick">≤15 minutes</option>
+                                <option value="medium">15-30 minutes</option>
+                                <option value="long">30+ minutes</option>
+                            </select>
+                            
+                            <select id="nutrition-filter">
+                                <option value="">All Nutrition</option>
+                                <option value="iron-rich">Iron-Rich</option>
+                                <option value="protein-rich">High-Protein</option>
+                                <option value="b12-fortified">B12-Fortified</option>
+                                <option value="kid-friendly">Kid-Friendly</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recipe-grid" id="recipe-grid">
+                    <!-- Recipes will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Nutrition Guide -->
+        <div id="nutrition" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Nutrition Guide</h1>
+                    <p>Understanding how this menu meets your family's nutritional needs</p>
+                </div>
+
+                <div class="nutrition-content">
+                    <section class="nutrition-overview">
+                        <h2>Nutritional Targets</h2>
+                        <p>Every meal set is designed to provide sufficient calories, protein, iron, and vitamin B12 for the family. Plant-based diets can meet or exceed children's needs for these nutrients when properly planned.</p>
+                        
+                        <div class="rda-chart">
+                            <h3>Recommended Daily Allowances (RDAs)</h3>
+                            <div class="rda-grid">
+                                <div class="rda-item">
+                                    <h4>Protein</h4>
+                                    <p><strong>Adults:</strong> ~50g/day</p>
+                                    <p><strong>Ages 1-3:</strong> ~13g/day</p>
+                                    <p><strong>Ages 4-8:</strong> ~19g/day</p>
+                                </div>
+                                <div class="rda-item">
+                                    <h4>Iron</h4>
+                                    <p><strong>Adult Women:</strong> 18mg/day</p>
+                                    <p><strong>Adult Men:</strong> 8mg/day</p>
+                                    <p><strong>Ages 1-3:</strong> 7mg/day</p>
+                                    <p><strong>Ages 4-8:</strong> 10mg/day</p>
+                                    <small>*Vegetarians need ~1.8× higher iron intake due to lower absorption</small>
+                                </div>
+                                <div class="rda-item">
+                                    <h4>Vitamin B12</h4>
+                                    <p><strong>Adults:</strong> 2.4μg/day</p>
+                                    <p><strong>Ages 1-3:</strong> 0.9μg/day</p>
+                                    <p><strong>Ages 4-8:</strong> 1.2μg/day</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="key-nutrients">
+                        <h2>Key Nutrients in Plant-Based Diets</h2>
+                        
+                        <div class="nutrient-sections">
+                            <div class="nutrient-section">
+                                <h3><i class="fas fa-dumbbell"></i> Iron</h3>
+                                <p>Nearly every lunch/dinner includes an iron-rich component (beans, lentils, tofu, greens). We incorporate citrus and vitamin C sources to enhance iron absorption.</p>
+                                <ul>
+                                    <li>Red lentils: ~4mg per serving</li>
+                                    <li>Tofu: ~3mg per ½ cup</li>
+                                    <li>Chickpeas: ~2mg per ½ cup</li>
+                                    <li>Fortified cereals: ~18mg per serving</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="nutrient-section">
+                                <h3><i class="fas fa-muscle"></i> Protein</h3>
+                                <p>Complete amino acid profiles across varied sources ensure adequate protein intake for growth and development.</p>
+                                <ul>
+                                    <li>Tofu: ~10g per ½ cup</li>
+                                    <li>Beans: ~7-9g per ½ cup</li>
+                                    <li>Soy milk: ~7g per cup</li>
+                                    <li>Whole grains: ~5-10g per serving</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="nutrient-section">
+                                <h3><i class="fas fa-vitamin"></i> Vitamin B12</h3>
+                                <p>Strategic placement of B12-fortified foods daily ensures adequate intake. Critical for vegan diets.</p>
+                                <ul>
+                                    <li>Fortified cereals: ~2.4μg per serving</li>
+                                    <li>Fortified plant milks: ~1-2μg per cup</li>
+                                    <li>Nutritional yeast: ~8μg per 2 tbsp</li>
+                                    <li>Fortified meat alternatives: ~1-2μg per serving</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meal Prep & Tips -->
+        <div id="meal-prep" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Meal Prep & Time-Saving Tips</h1>
+                    <p>Make feeding your family easier with smart preparation strategies</p>
+                </div>
+
+                <div class="prep-content">
+                    <section class="prep-strategy">
+                        <h2>The 2-Day Rotation System</h2>
+                        <p>This menu uses a brilliant approach: the same set of meals is served on two consecutive days. You cook once and enjoy leftovers the next day, saving time and reducing daily cooking stress.</p>
+                        
+                        <div class="benefits">
+                            <div class="benefit">
+                                <i class="fas fa-clock"></i>
+                                <h4>Save Time</h4>
+                                <p>Cut cooking time in half by preparing once for two days</p>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-dollar-sign"></i>
+                                <h4>Reduce Waste</h4>
+                                <p>Use ingredients efficiently across multiple meals</p>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-brain"></i>
+                                <h4>Less Planning</h4>
+                                <p>Simplified decision-making with structured repetition</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="batch-cooking">
+                        <h2>Batch Cooking Guide</h2>
+                        <div class="batch-tips">
+                            <div class="tip-category">
+                                <h3>Freezer-Friendly Meals</h3>
+                                <ul>
+                                    <li>Four-Bean Chili - freeze half for later use</li>
+                                    <li>Lentil soups and dal - portion and freeze</li>
+                                    <li>Baked falafel - freeze after cooling</li>
+                                    <li>Muffins and pancakes - freeze individually</li>
+                                    <li>Pesto sauce - freeze in ice cube trays</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tip-category">
+                                <h3>Make-Ahead Components</h3>
+                                <ul>
+                                    <li>Cook large batches of grains (rice, quinoa)</li>
+                                    <li>Prep vegetables early in the week</li>
+                                    <li>Soak chickpeas overnight for falafel</li>
+                                    <li>Marinate tofu in advance</li>
+                                    <li>Prepare overnight oats for 2-3 days</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="storage-tips">
+                        <h2>Storage & Safety Guidelines</h2>
+                        <div class="storage-grid">
+                            <div class="storage-item">
+                                <h4>48-Hour Rule</h4>
+                                <p>Consume leftovers within 48 hours for best taste and safety. Most cooked dishes stay fresh 3-4 days refrigerated.</p>
+                            </div>
+                            <div class="storage-item">
+                                <h4>Proper Cooling</h4>
+                                <p>Cool foods quickly and store in shallow containers. Get to refrigerator temperature within 2 hours of cooking.</p>
+                            </div>
+                            <div class="storage-item">
+                                <h4>Reheating Tips</h4>
+                                <p>Reheat to steaming temperature. Add a splash of water or broth to prevent drying out.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="kid-involvement">
+                        <h2>Getting Kids Involved</h2>
+                        <div class="involvement-tips">
+                            <h3>Age-Appropriate Tasks</h3>
+                            <ul>
+                                <li><strong>Ages 3-4:</strong> Washing vegetables, stirring, adding ingredients to bowls</li>
+                                <li><strong>Ages 5-6:</strong> Measuring ingredients, simple cutting with kid-safe knives</li>
+                                <li><strong>Ages 7+:</strong> Reading recipes, more complex cutting, operating simple appliances</li>
+                            </ul>
+                            
+                            <h3>Fun Presentation Ideas</h3>
+                            <ul>
+                                <li>Cut sandwiches into fun shapes</li>
+                                <li>Let kids arrange their own "rainbow bowls"</li>
+                                <li>Use colorful plates and utensils</li>
+                                <li>Create "face" arrangements with vegetables</li>
+                                <li>Serve sauces and dips on the side for "dipping fun"</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping Lists -->
+        <div id="shopping" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Smart Shopping Lists</h1>
+                    <p>Organized shopping lists to make grocery trips efficient and budget-friendly</p>
+                </div>
+
+                <div class="shopping-content">
+                    <div class="list-types">
+                        <button class="list-tab active" data-list="monthly">Monthly List</button>
+                        <button class="list-tab" data-list="weekly">Weekly Lists</button>
+                        <button class="list-tab" data-list="pantry">Pantry Staples</button>
+                        <button class="list-tab" data-list="cost-tips">Cost Tips</button>
+                    </div>
+
+                    <div id="monthly-list" class="shopping-list active">
+                        <h2>Complete Monthly Shopping List</h2>
+                        <p>Everything you need for all 30 days - approximately CAD $150-$180 for a family of 4</p>
+                        
+                        <div class="shopping-categories">
+                            <div class="category">
+                                <h3><i class="fas fa-seedling"></i> Produce</h3>
+                                <ul>
+                                    <li>Bananas (weekly - ~2 dozen total)</li>
+                                    <li>Mixed berries (4 containers or frozen)</li>
+                                    <li>Apples (3 lb bag)</li>
+                                    <li>Oranges/lemons (for vitamin C)</li>
+                                    <li>Onions (5 lb bag)</li>
+                                    <li>Carrots (5 lb bag)</li>
+                                    <li>Bell peppers (8-10 peppers)</li>
+                                    <li>Broccoli (4 heads or frozen)</li>
+                                    <li>Spinach/kale (weekly fresh or frozen)</li>
+                                    <li>Tomatoes (cherry + regular)</li>
+                                    <li>Cucumbers (4-5 large)</li>
+                                    <li>Sweet potatoes (3 lb)</li>
+                                    <li>Regular potatoes (5 lb)</li>
+                                    <li>Avocados (8-10 fruits)</li>
+                                    <li>Fresh herbs (parsley, cilantro, basil)</li>
+                                    <li>Garlic (2 heads)</li>
+                                    <li>Ginger (1 piece)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="category">
+                                <h3><i class="fas fa-box"></i> Pantry Staples</h3>
+                                <ul>
+                                    <li>Red lentils (2-3 lb bag)</li>
+                                    <li>Chickpeas (dried 2 lb + canned backup)</li>
+                                    <li>Black beans (3 cans)</li>
+                                    <li>White cannellini beans (2 cans)</li>
+                                    <li>Kidney beans (2 cans)</li>
+                                    <li>Rolled oats (large container)</li>
+                                    <li>Brown rice (10 lb bag)</li>
+                                    <li>Quinoa (2 lb bag)</li>
+                                    <li>Whole wheat flour (5 lb)</li>
+                                    <li>Whole grain pasta (8 boxes various shapes)</li>
+                                    <li>Chia seeds (1 lb)</li>
+                                    <li>Ground flaxseed (1 container)</li>
+                                    <li>Hemp seeds (1 bag)</li>
+                                    <li>Peanut butter (large jar)</li>
+                                    <li>Tahini (1 jar)</li>
+                                    <li>Nutritional yeast (1 container)</li>
+                                    <li>Coconut milk (4 cans)</li>
+                                    <li>Canned tomatoes (6 cans)</li>
+                                    <li>Vegetable broth (6 cartons)</li>
+                                    <li>Soy sauce/tamari</li>
+                                    <li>Olive oil</li>
+                                    <li>Maple syrup</li>
+                                    <li>Baking powder</li>
+                                    <li>Vanilla extract</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="category">
+                                <h3><i class="fas fa-snowflake"></i> Refrigerated/Frozen</h3>
+                                <ul>
+                                    <li>Tofu (4 blocks extra-firm)</li>
+                                    <li>Fortified soy milk (8 liters)</li>
+                                    <li>Whole grain bread (4 loaves)</li>
+                                    <li>Whole wheat tortillas (2 dozen)</li>
+                                    <li>Pita bread (2 packages)</li>
+                                    <li>Vegan butter</li>
+                                    <li>Fortified plant yogurt (4 containers)</li>
+                                    <li>Frozen mixed vegetables</li>
+                                    <li>Frozen corn</li>
+                                    <li>Frozen peas</li>
+                                    <li>Frozen edamame</li>
+                                    <li>Fortified breakfast cereal (2 boxes)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="category">
+                                <h3><i class="fas fa-mortar-pestle"></i> Spices & Seasonings</h3>
+                                <ul>
+                                    <li>Cumin</li>
+                                    <li>Turmeric</li>
+                                    <li>Cinnamon</li>
+                                    <li>Garlic powder</li>
+                                    <li>Chili powder (mild)</li>
+                                    <li>Italian seasoning</li>
+                                    <li>Black pepper</li>
+                                    <li>Sea salt</li>
+                                    <li>Lemon juice</li>
+                                    <li>Apple cider vinegar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="weekly-list" class="shopping-list">
+                        <h2>Weekly Shopping Lists</h2>
+                        <p>Break down your shopping by week to keep produce fresh</p>
+                        
+                        <div class="weekly-breakdown">
+                            <div class="week">
+                                <h3>Week 1 (Days 1-8)</h3>
+                                <ul>
+                                    <li>Fresh produce for Days 1-8 meals</li>
+                                    <li>Bananas (6-8)</li>
+                                    <li>Mixed berries (1 container)</li>
+                                    <li>Leafy greens (spinach/kale)</li>
+                                    <li>Vegetables for specific recipes</li>
+                                    <li>Fresh herbs as needed</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="week">
+                                <h3>Week 2 (Days 9-16)</h3>
+                                <ul>
+                                    <li>Fresh produce for Days 9-16 meals</li>
+                                    <li>Bananas (6-8)</li>
+                                    <li>Vegetables for stir-fries and salads</li>
+                                    <li>Additional tofu if needed</li>
+                                    <li>Bread refresh</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="week">
+                                <h3>Week 3 (Days 17-24)</h3>
+                                <ul>
+                                    <li>Fresh produce for Days 17-24 meals</li>
+                                    <li>Bananas (6-8)</li>
+                                    <li>Seasonal vegetables</li>
+                                    <li>Plant milk refill</li>
+                                    <li>Fresh herbs</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="week">
+                                <h3>Week 4 (Days 25-30)</h3>
+                                <ul>
+                                    <li>Fresh produce for final days</li>
+                                    <li>Bananas (6-8)</li>
+                                    <li>Use up remaining pantry items</li>
+                                    <li>Plan for next month</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pantry-list" class="shopping-list">
+                        <h2>Pantry Staples to Stock</h2>
+                        <p>Buy these in bulk for the best value and convenience</p>
+                        
+                        <div class="pantry-tips">
+                            <div class="tip">
+                                <h3>Legumes</h3>
+                                <p>Stock up on dried lentils, chickpeas, and beans. Vancouver's bulk stores and Indian markets offer great prices. Buying dried saves money and reduces packaging waste.</p>
+                            </div>
+                            
+                            <div class="tip">
+                                <h3>Grains</h3>
+                                <p>Buy large bags of oats, rice, and quinoa. A 10 lb bag of brown rice will last the month and beyond. Store in airtight containers.</p>
+                            </div>
+                            
+                            <div class="tip">
+                                <h3>Nuts & Seeds</h3>
+                                <p>Purchase chia, flax, hemp seeds, and nut butters in bulk. Costco or Bulk Barn in BC offer good deals. Store seeds in the refrigerator for freshness.</p>
+                            </div>
+                            
+                            <div class="tip">
+                                <h3>Spices</h3>
+                                <p>Buy from bulk spice shops for better prices. Middle Eastern stores in Vancouver often have excellent prices on cumin, turmeric, and tahini.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cost-tips" class="shopping-list">
+                        <h2>Cost Optimization Tips</h2>
+                        <p>Smart strategies to keep your grocery budget in check</p>
+                        
+                        <div class="cost-strategies">
+                            <div class="strategy">
+                                <h3><i class="fas fa-calendar-alt"></i> Seasonal Shopping</h3>
+                                <ul>
+                                    <li>BC Fall/Winter: Local pumpkins, squash, apples, root vegetables</li>
+                                    <li>Buy seasonal produce when abundant and freeze extra</li>
+                                    <li>Use frozen vegetables when fresh is expensive</li>
+                                    <li>Shop farmers markets for end-of-day deals</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="strategy">
+                                <h3><i class="fas fa-exchange-alt"></i> Smart Substitutions</h3>
+                                <ul>
+                                    <li>Use one type of bean for multiple recipes when on sale</li>
+                                    <li>Substitute frozen berries for fresh in smoothies</li>
+                                    <li>Use kale instead of spinach when more affordable</li>
+                                    <li>Generic brands for basic ingredients (flour, oats, canned goods)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="strategy">
+                                <h3><i class="fas fa-store"></i> Where to Shop in Vancouver</h3>
+                                <ul>
+                                    <li><strong>Bulk items:</strong> Bulk Barn, Costco</li>
+                                    <li><strong>Asian ingredients:</strong> T&T, Chinatown markets</li>
+                                    <li><strong>Middle Eastern:</strong> Persian/Lebanese grocers on Fraser St</li>
+                                    <li><strong>General groceries:</strong> Superstore, No Frills for value</li>
+                                    <li><strong>Specialty vegan:</strong> Vegan Supply in Chinatown</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="strategy">
+                                <h3><i class="fas fa-piggy-bank"></i> Budget Breakdown</h3>
+                                <p><strong>Estimated monthly cost:</strong> CAD $150-$180 for family of 4</p>
+                                <p><strong>Per person per day:</strong> $5-$6</p>
+                                <p>This is significantly cheaper than buying convenience vegan foods or eating out, while providing complete nutrition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About & Sources -->
+        <div id="about" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>About & Sources</h1>
+                    <p>Evidence-based approach to vegan family nutrition</p>
+                </div>
+
+                <div class="about-content">
+                    <section class="mission">
+                        <h2>Our Mission</h2>
+                        <p>Feeding a vegan family with young children can be healthy, simple, and fun. This 30-day rotating menu was created to demonstrate that a well-planned plant-based menu can meet all nutritional needs for protein, iron, vitamin B12, and more, even for growing kids.</p>
+                        
+                        <p>Our approach emphasizes:</p>
+                        <ul>
+                            <li>Quick preparation with minimal stress</li>
+                            <li>Nutritional adequacy backed by research</li>
+                            <li>Kid-friendly flavors and presentations</li>
+                            <li>Diverse cuisines for culinary education</li>
+                            <li>Evidence-based meal planning</li>
+                        </ul>
+                    </section>
+
+                    <section class="methodology">
+                        <h2>Methodology</h2>
+                        <p>Every recipe in this collection is sourced from reputable sources including registered dietitians, established vegan cookbooks, and popular recipe sites with nutritional verification. Each meal set is designed against the Recommended Dietary Allowances (RDAs) for key nutrients.</p>
+                        
+                        <div class="research-points">
+                            <div class="point">
+                                <h4>Nutritional Analysis</h4>
+                                <p>Each day's menu was analyzed to ensure adequate protein, iron, and B12 intake for all family members, with safety margins for growing children.</p>
+                            </div>
+                            
+                            <div class="point">
+                                <h4>Practical Testing</h4>
+                                <p>Recipes were tested for preparation time, kid acceptance, and storage quality to ensure real-world viability.</p>
+                            </div>
+                            
+                            <div class="point">
+                                <h4>Expert Review</h4>
+                                <p>Consultation with plant-based registered dietitians ensured nutritional completeness and safety guidelines.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="sources">
+                        <h2>Key Sources & References</h2>
+                        
+                        <div class="source-categories">
+                            <div class="source-category">
+                                <h3>Position Papers & Research</h3>
+                                <ul>
+                                    <li>Academy of Nutrition and Dietetics: Position of the Academy of Nutrition and Dietetics: Vegetarian Diets (2016)</li>
+                                    <li>National Institutes of Health: Iron Fact Sheet for Health Professionals</li>
+                                    <li>NIH Office of Dietary Supplements: Vitamin B12 Fact Sheet</li>
+                                    <li>Health Canada Guidelines on Food Fortification</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="source-category">
+                                <h3>Recipe Sources</h3>
+                                <ul>
+                                    <li>Plant-Based on a Budget (kid-friendly meal ideas)</li>
+                                    <li>Vegan Kids Nutrition (specialized child nutrition)</li>
+                                    <li>Keeping the Peas (registered dietitian recipes)</li>
+                                    <li>Cookie and Kate (tested family recipes)</li>
+                                    <li>Oh My Veggies (creative plant-based cooking)</li>
+                                    <li>Eleat Sports Nutrition (high-protein plant-based)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="source-category">
+                                <h3>Nutritional Data</h3>
+                                <ul>
+                                    <li>USDA FoodData Central</li>
+                                    <li>Recipe source nutritional analyses</li>
+                                    <li>Food fortification labeling data</li>
+                                    <li>Registered dietitian calculations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="contact">
+                        <h2>Questions & Support</h2>
+                        <div class="faq-preview">
+                            <h3>Common Questions:</h3>
+                            <div class="faq-item">
+                                <strong>Q: Is this menu suitable for toddlers under 3?</strong>
+                                <p>A: The recipes can be adapted for younger children with texture modifications and smaller portions. Consult your pediatrician about specific nutritional needs for children under 2.</p>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <strong>Q: What if my child has food allergies?</strong>
+                                <p>A: Many recipes offer substitution suggestions. For serious allergies, please consult with a registered dietitian to ensure nutritional adequacy with modifications.</p>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <strong>Q: Do we need B12 supplements in addition to fortified foods?</strong>
+                                <p>A: This menu includes B12-fortified foods daily, but many pediatric dietitians recommend a small B12 supplement 2-3 times per week as extra insurance for growing children.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe Detail Modal -->
+        <div id="recipe-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="recipe-detail">
+                    <!-- Recipe details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Day Detail Modal -->
+        <div id="day-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="day-detail">
+                    <!-- Day details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript Files - Load in correct order -->
+    <script src="js/recipe-data.js"></script>
+    <script src="js/menu-calendar.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/calendar-generator.js"></script>
+    <script src="js/recipe-library.js"></script>
+    <script src="js/modal-handler.js"></script>
+    <script src="js/shopping-lists.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+                        
